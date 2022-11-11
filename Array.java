@@ -1,19 +1,21 @@
 public class Array {
     public static void main(String[] args) throws Exception {
-        System.out.println("Largest Number in the array: ");
+        System.out.println("Second largest number in the array: ");
 
         // array
-        int number[] = { 23, 24, 54, 65, 100, 145, 654 };
+        int number[] = { 23, 214, 154, 65, 100, 145, 654 };
 
-        // assign
-        int max = number[0];
-
-        // to run the elements in the array
         for (int i = 0; i < number.length; i++) {
-            if (number[i] < max) {
-                max = number[i];
+            for (int j = i + 1; j < number.length; j++) {
+                // condition for sorting the array
+                if (number[i] > number[j]) {
+                    int temp = number[i];
+                    number[i] = number[j];
+                    number[j] = temp;
+                }
             }
         }
-        System.out.println("Largest number is: " + max);
+        int second = number.length-2;//using sorted array,finding the second largest
+        System.out.println(number[second]);
     }
 }
